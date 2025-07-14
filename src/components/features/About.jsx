@@ -1,21 +1,45 @@
-import React from 'react';
+import React,{ useRef }  from 'react';
 import Button from '../ui/Button';
 import githublogo from "../../assets/images/github.png"
 import linkedinlogo from "../../assets/images/linkedin.png"
 import mailto from "../../assets/images/mail.png"
+import { Toaster, toast } from 'react-hot-toast';
+import emailjs from '@emailjs/browser';
+
+
+const SERVICE_ID = process.env.REACT_APP_SERVICE_ID;
+const TEMPLATE_ID = process.env.REACT_APP_TEMPLATE_ID;
+const PUBLIC_KEY = process.env.REACT_APP_PUBLIC_KEY;
 
 /**
  * About section component with compact styling, contact info, and contact form (form on right)
  */
 const About = () => {
+  const form = useRef();
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Handle form submission
-    console.log('Form submitted');
+    toast.success('Message sent successfully!', {
+      duration: 2000,
+      position: 'top-right',
+    });
+    emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, form.current, PUBLIC_KEY)
+      .then(() => {
+      
+        console.log('Message sent successfully!');
+        form.current.reset(); // Optionally reset the form after sending
+      })
+      .catch((error) => {
+        console.error(error);
+        toast.error('Message failed to send. Please try again.', {
+          duration: 2000,
+          position: 'top-right',
+        });
+      });
   };
 
   return (
     <section id="about" className="py-8 bg-white dark:bg-gray-900">
+      <Toaster />
       <div className="max-w-2xl mx-auto px-3">
         <div className="grid md:grid-cols-2 gap-6 items-start">
           {/* Left: About Me and Contact Info */}
@@ -57,28 +81,28 @@ const About = () => {
             <h3 className="text-base font-semibold text-gray-900 dark:text-white mb-3">
               Send me a message
             </h3>
-            <form onSubmit={handleSubmit} className="space-y-3">
+            <form onSubmit={handleSubmit} className="space-y-3" ref={form}>
               <div>
-                <label htmlFor="name" className="block text-xs font-medium text-gray-700 dark:text-gray-300 mb-1">
+                <label htmlFor="from_name" className="block text-xs font-medium text-gray-700 dark:text-gray-300 mb-1">
                   Name
                 </label>
                 <input
                   type="text"
-                  id="name"
-                  name="name"
+                  id="from_name"
+                  name="from_name"
                   required
                   className="w-full px-2 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white dark:bg-gray-800 text-gray-900 dark:text-white text-xs"
                   placeholder="Your name"
                 />
               </div>
               <div>
-                <label htmlFor="email" className="block text-xs font-medium text-gray-700 dark:text-gray-300 mb-1">
+                <label htmlFor="from_email" className="block text-xs font-medium text-gray-700 dark:text-gray-300 mb-1">
                   Email
                 </label>
                 <input
                   type="email"
-                  id="email"
-                  name="email"
+                  id="from_email"
+                  name="from_email"
                   required
                   className="w-full px-2 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white dark:bg-gray-800 text-gray-900 dark:text-white text-xs"
                   placeholder="your.email@example.com"
