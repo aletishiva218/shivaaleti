@@ -22,6 +22,11 @@ const About = () => {
       duration: 2000,
       position: 'top-right',
     });
+    const hiddenInput = document.createElement("input");
+  hiddenInput.type = "hidden";
+    hiddenInput.name = "subject";
+    hiddenInput.value = "New Message from Portfolio";
+    form.current.appendChild(hiddenInput);
     emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, form.current, PUBLIC_KEY)
       .then(() => {
       
