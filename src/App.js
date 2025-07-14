@@ -1,25 +1,41 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
 
-function App() {
+// Import components
+import Hero from './components/features/Hero';
+import About from './components/features/About';
+import Education from './components/features/Education';
+import Certifications from './components/features/Certifications';
+import Experience from './components/features/Experience';
+import Skills from './components/features/Skills';
+import Projects from './components/features/Projects';
+import Contact from './components/features/Contact';
+import SocialBar from './components/ui/SocialBar';
+import GlowingCursor from './components/ui/GlowingCursor';
+
+// Import theme provider
+import { ThemeProvider } from './context/ThemeContext';
+
+/**
+ * Main App component that renders the complete portfolio
+ */
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeProvider>
+      <div className="App relative">
+        <GlowingCursor />
+        <main>
+          <About />
+          <Education />
+          <Certifications />
+          <Experience />
+          <Skills />
+          <Projects />
+          <Contact />
+        </main>
+        <SocialBar />
+      </div>
+    </ThemeProvider>
   );
-}
+};
 
 export default App;
