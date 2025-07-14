@@ -1,7 +1,6 @@
 import React from 'react';
 
 // Import components
-import Hero from './components/features/Hero';
 import About from './components/features/About';
 import Education from './components/features/Education';
 import Certifications from './components/features/Certifications';
