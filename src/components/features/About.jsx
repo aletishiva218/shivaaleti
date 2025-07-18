@@ -3,6 +3,8 @@ import Button from '../ui/Button';
 import githublogo from "../../assets/images/github.png"
 import linkedinlogo from "../../assets/images/linkedin.png"
 import mailto from "../../assets/images/mail.png"
+import resume from "../../assets/images/resume.png";
+import resumepdf from '../../assets/pdf/Shiva_Aleti.pdf';
 import { Toaster, toast } from 'react-hot-toast';
 import emailjs from '@emailjs/browser';
 
@@ -52,7 +54,7 @@ const About = () => {
             <h2 className="text-lg font-bold text-gray-900 dark:text-white mb-2">About Me</h2>
             <div className="text-xs text-gray-600 dark:text-gray-400 leading-normal mb-4">
               <p>
-              I architect backend systems with a logic-first mindset, decoding real-world complexities into structured, elegant solutions. Proficient in Python, Node.js, Flask, FastAPI, and Express, I gravitate toward crafting robust APIs and seamless data flows that empower functionality behind the scenes with precision and purpose.
+              Hi, I’m Shiva. I architect backend systems with a logic-first mindset, decoding real-world complexities into structured, elegant solutions. Proficient in Python, Node.js, Flask, FastAPI, and Express, I craft robust APIs and seamless data flows that power functionality with precision and purpose.
               </p>
             </div>
             <div className="mt-6">
@@ -69,13 +71,16 @@ const About = () => {
                 </div>
                 <div className="flex flex-wrap gap-3 items-center">
                   <a href="https://github.com/aletishiva218" target="_blank" rel="noopener noreferrer" className="flex items-center text-xs text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
-                    <span className="mr-1"><img src={githublogo} alt="GitHub" className="w-4 h-4 bg-white rounded-full" /></span> GitHub
+                    <span className="mr-1"><img src={githublogo} alt="GitHub" className="w-4 h-4 bg-white rounded-full p-[2px]" /></span> GitHub
                   </a>
                   <a href="https://linkedin.com/in/shiva-aleti" target="_blank" rel="noopener noreferrer" className="flex items-center text-xs text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
-                    <span className="mr-1"><img src={linkedinlogo} alt="LinkedIn" className="w-4 h-4 bg-white rounded-md" /></span> LinkedIn
+                    <span className="mr-1"><img src={linkedinlogo} alt="LinkedIn" className="w-4 h-4 rounded-full" /></span> LinkedIn
                   </a>
                   <a href="mailto:aletishiva218@gmail.com" className="flex items-center text-xs text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
-                    <span className="mr-1"><img src={mailto} alt="Email" className="w-4 h-4 bg-white rounded-full p-[1px]" /></span> Email
+                    <span className="mr-1"><img src={mailto} alt="Email" className="w-4 h-4 bg-white rounded-full" /></span> Gmail
+                  </a>
+                   <a href={resumepdf} target="_blank" rel="noopener noreferrer" className="flex items-center text-xs text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                    <span className="mr-1"><img src={resume} alt="Email" className="w-4 h-4 bg-white rounded-full" /></span> Resume
                   </a>
                 </div>
               </div>

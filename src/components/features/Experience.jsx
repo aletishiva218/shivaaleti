@@ -23,7 +23,8 @@ const Experience = () => {
       <div className="max-w-2xl mx-auto px-3">
         <h2 className="text-lg font-bold text-gray-900 dark:text-white mb-4 text-left">Work Experience</h2>
         <ScrollBlur>
-          <div className="flex sm:flex-row sm:items-start rounded-lg mt-2 p-4">
+          <div className="flex sm:flex-row sm:items-start rounded-lg mt-2 cursor-pointer" onClick={() => setIsOpen((open) => !open)} aria-expanded={isOpen}
+              aria-controls="exp-content">
           {/* Logo */}
           <div className="flex-shrink-0 mr-3">
             <img src={useslogo} alt="USES Inspiration Pvt. Ltd." className="w-10 h-10 rounded-full bg-white" />
@@ -31,13 +32,7 @@ const Experience = () => {
           {/* Content */}
           <div className="flex-1 min-w-0">
             {/* Company Row (clickable) */}
-            <button
-              className="w-full flex items-center justify-between focus:outline-none cursor-pointer group"
-              onClick={() => setIsOpen((open) => !open)}
-              aria-expanded={isOpen}
-              aria-controls="exp-content"
-              type="button"
-            >
+            <div className="w-full flex items-center justify-between focus:outline-none cursor-pointer group">
               <div className="flex items-center gap-1 text-left">
                 <span className="font-semibold text-gray-900 dark:text-white text-sm leading-tight">USES Inspiration Pvt. Ltd.</span>
                 {/* Chevron Arrow */}
@@ -54,7 +49,7 @@ const Experience = () => {
               <div className="text-xs text-gray-500 dark:text-gray-400 sm:text-right min-w-[110px]">
                 July 2024 - Present
               </div>
-            </button>
+            </div>
             <div className="text-xs text-gray-600 dark:text-gray-300 leading-tight mt-0.5 mb-1">
               Web Developer
             </div>
