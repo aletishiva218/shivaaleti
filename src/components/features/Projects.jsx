@@ -30,7 +30,7 @@ const Projects = () => {
                 <div className="flex-1 flex flex-col p-3 sm:p-2">
                   <h3 className="text-sm font-bold text-gray-900 dark:text-white mb-0.5">{project.title}</h3>
                   <div className="text-[11px] text-gray-700 dark:text-gray-300 mb-0.5">{project.date}</div>
-                  <p className="text-xs text-gray-700 dark:text-gray-300 mb-1 flex-1 line-clamp-4">{project.description}</p>
+                  <p className="text-xs text-gray-700 dark:text-gray-300 mb-1 flex-1">{project.description}</p>
                   <div className="flex flex-wrap gap-0.5 mb-1">
                     {project.technologies.map((tech, techIdx) => (
                       <span key={techIdx} className="bg-gray-100 dark:bg-gray-700 text-[9px] text-gray-800 dark:text-gray-200 px-1 py-0.5 rounded font-medium">

@@ -31,15 +31,15 @@ export const portfolioData = {
     {
       title: 'To Do List',
       description: 'To-do app with auth, CRUD tasks, date restrictions, status updates, and robust input validation handling.',
-      technologies: ['React','Node.js','Express','Scratch','MUI'],
+      technologies: ['React','Node.js','Express','Scratch','MUI','onrender'],
       imageUrl: todolist,
       date: 'June 2024 - June 2024',
       website: 'https://todo-listwebapplication.netlify.app/',
     },
     {
       title: 'Tic Tac Toe',
-      description: 'Built responsive tic-tac-toe with game logic, win detection, sound effects, and intuitive UI design.',
-      technologies: ['HTML', 'CSS', 'JavaScript'],
+      description: 'Built fully responsive tic-tac-toe with game logic, win detection, sound effects, and intuitive UI design.',
+      technologies: ['HTML', 'CSS', 'JavaScript','Logic Building','DOM Manipulation'],
       imageUrl: tictactoe,
       date: 'March 2024 - March 2024',
       website: 'https://ticgametacgametoegamenew.netlify.app/',
