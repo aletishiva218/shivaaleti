@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect } from "react";
 import useslogo from "../../assets/images/uses.webp";
 import mubyChemlogo from "../../assets/images/mubychem.webp";
 import ScrollBlur from "../ui/ScrollBlur";
@@ -9,7 +9,9 @@ import ScrollBlur from "../ui/ScrollBlur";
 const Experience = () => {
   const [isOpen, setIsOpen] = useState([false, false]); // state per item
   const [maxHeight, setMaxHeight] = useState(["0px", "0px"]); // maxHeight per item
-  const contentRefs = [useRef(null), useRef(null)]; // refs per item
+
+  // ✅ FIX: stable refs array (not recreated each render)
+  const contentRefs = useRef([]);
 
   const toggleItem = (index) => {
     setIsOpen((prev) => {
@@ -21,19 +23,13 @@ const Experience = () => {
 
   useEffect(() => {
     isOpen.forEach((open, index) => {
-      if (open && contentRefs[index].current) {
-        setMaxHeight((prev) => {
-          const updated = [...prev];
-          updated[index] = contentRefs[index].current.scrollHeight + "px";
-          return updated;
-        });
-      } else {
-        setMaxHeight((prev) => {
-          const updated = [...prev];
-          updated[index] = "0px";
-          return updated;
-        });
-      }
+      const el = contentRefs.current[index];
+
+      setMaxHeight((prev) => {
+        const updated = [...prev];
+        updated[index] = open && el ? el.scrollHeight + "px" : "0px";
+        return updated;
+      });
     });
   }, [isOpen]);
 
@@ -100,6 +96,7 @@ const Experience = () => {
                     <span className="font-semibold text-gray-900 dark:text-white text-sm leading-tight">
                       {exp.company}
                     </span>
+
                     {/* Chevron Arrow */}
                     <svg
                       className={`w-4 h-4 ml-0.5 transition-transform duration-200 ${
@@ -118,6 +115,7 @@ const Experience = () => {
                       />
                     </svg>
                   </div>
+
                   <div className="text-xs text-gray-500 dark:text-gray-400 sm:text-right min-w-[110px]">
                     {exp.period}
                   </div>
@@ -130,7 +128,8 @@ const Experience = () => {
                 {/* Expandable Content */}
                 <div
                   id={`exp-content-${index}`}
-                  ref={contentRefs[index]}
+                  // ✅ FIX: store element into the stable ref array
+                  ref={(el) => (contentRefs.current[index] = el)}
                   style={{
                     maxHeight: maxHeight[index],
                     opacity: isOpen[index] ? 1 : 0,
