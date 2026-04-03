@@ -1,6 +1,4 @@
 import { useState, useRef, useEffect } from "react";
-import useslogo from "../../assets/images/uses.webp";
-import mubyChemlogo from "../../assets/images/mubychem.webp";
 import ScrollBlur from "../ui/ScrollBlur";
 
 /**
@@ -35,22 +33,20 @@ const Experience = () => {
 
   const experienceData = [
     {
-      logo: mubyChemlogo,
+      logo: "/images/mubychem.webp",
       company: "Muby Chem Pvt. Ltd.",
       role: "Web Developer",
       period: "Oct 2025 - Present",
       tasks: [
-        "Automated the migration of 800+ chemical products by developing a Python Selenium automation system, reducing a 20–25 day manual task to just 1–2 days, increasing productivity by over 90%.",
-        "Improved data accuracy by 95% through automated fetching, filtering, and structuring of product details (names, agencies, descriptions, images), eliminating repetitive manual errors.",
-        "Managed multiple production websites using PHP and hosting tools (including cPanel/Hostinger) and delivered features with 40–50% faster development speed, despite these not being primary skills — showcasing strong quick-learning and adaptability.",
-        "Delivered a 100% reliable authentication system using access tokens, refresh tokens, and secure sessions, improving platform security and user experience.",
-        "Resolved live website issues with 70% fewer recurring problems through rapid debugging and AI-assisted analysis (ChatGPT, LLM tools), ensuring stable and high-performance operations.",
-        "Enhanced overall website performance and stability by 30% through efficient maintenance, improved functionality, and quick turnaround on fixes.",
-        "Demonstrated strong problem-solving and fast-learning ability by understanding unfamiliar technologies (PHP, hosting panels, server-side tools) within 1–1.5 weeks and delivering high-quality, accurate results consistently.",
+        "Automated migration of 800+ chemical products using Python Selenium, reducing a 20–25 day manual task to 1–2 days and improving productivity by 90%+, while achieving 95% data accuracy.",
+        "Designed and built a centralized Document Management System (DMS) to replace inefficient Outlook-based workflows handling large volumes of emails and documents. Implemented features like product/document management, customer login, quotation/sample approvals, chat system, purchase orders, invoice uploads, and enquiry handling—significantly improving organization, tracking, and reliability.",
+        "Integrated secure SFTP-based file management for storing credentials and certifications, eliminating risks of data loss and improving structured access for customers.",
+        "Managed production websites using PHP and hosting platforms (cPanel/Hostinger), delivering features 40–50% faster despite working outside primary skills, showcasing strong adaptability and fast learning.",
+        "Built a secure authentication system with tokens and sessions, reduced recurring issues by 70%, and improved overall platform performance and stability by 30% through efficient debugging and optimization."
       ],
     },
     {
-      logo: useslogo,
+      logo: "/images/uses.webp",
       company: "USES Inspiration Pvt. Ltd.",
       role: "Web Developer",
       period: "July 2024 - Oct 2025",

@@ -1,6 +1,5 @@
 import React from 'react';
 import ThemeToggle from './ThemeToggle';
-import resume from '../../assets/pdf/Shiva_Aleti.pdf';
 
 const socials = [
   {
@@ -48,7 +47,7 @@ const SocialBar = () => (
       ))}
       {/* Resume Icon Only */}
       <a
-        href={resume}
+        href="/pdf/Shiva_Aleti.pdf"
         target="_blank"
         rel="noopener noreferrer"
         className="relative group text-gray-700 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 transition"
