@@ -49,7 +49,7 @@ const About = () => {
             <h2 className="text-lg font-bold text-gray-900 dark:text-white mb-2">About Me</h2>
             <div className="text-xs text-gray-600 dark:text-gray-400 leading-normal mb-4">
               <p>
-              Hi, I’m Shiva. I architect backend systems with a logic-first mindset, decoding real-world complexities into structured, elegant solutions. Proficient in Python, Node.js, Flask, FastAPI, and Express, I craft robust APIs and seamless data flows that power functionality with precision and purpose.
+              Hi, I’m Shiva. A Full Stack Web Developer with 2+ years of experience building and maintaining scalable web applications using PHP, React, Node.js, and Python. Experienced in developing and maintaining web scrapers using Scrapy and Selenium, including debugging, automation, and handling website structure changes. Skilled in backend APIs, database management, production-level issue resolution, and scalable automation systems, with hands-on experience in AI-integrated tools and performance optimization.
               </p>
             </div>
             <div className="mt-6">

@@ -5,7 +5,7 @@ import ScrollBlur from "../ui/ScrollBlur";
  * Work Experience section with expandable content, chevron arrow, and smooth transition
  */
 const Experience = () => {
-  const [isOpen, setIsOpen] = useState([false, false]); // state per item
+  const [isOpen, setIsOpen] = useState([false, false,false]); // state per item
   const [maxHeight, setMaxHeight] = useState(["0px", "0px"]); // maxHeight per item
 
   // ✅ FIX: stable refs array (not recreated each render)
@@ -33,10 +33,22 @@ const Experience = () => {
 
   const experienceData = [
     {
+      logo: "/images/tenderimpulse.webp",
+      company: "Tender Impulse",
+      role: "Python Developer",
+      period: "May 2026 - Present",
+      tasks: [
+        "Developed and maintained Python web scrapers using Scrapy and Selenium for automated data extraction and monitoring.",
+        "Debugged and optimized existing scrapers by resolving failures, handling website structure changes, and improving scraper reliability and performance.",
+        "Monitored daily scraper execution and ensured timely, accurate, and uninterrupted data collection workflows.",
+        "Collaborated with teams to enhance scraping infrastructure, automate processes, and support maintenance involving Python, PHP, and MySQL."
+      ],
+    },
+    {
       logo: "/images/mubychem.webp",
       company: "Muby Chem Pvt. Ltd.",
       role: "Web Developer",
-      period: "Oct 2025 - Present",
+      period: "Oct 2025 - April 2026",
       tasks: [
         "Automated migration of 800+ chemical products using Python Selenium, reducing a 20–25 day manual task to 1–2 days and improving productivity by 90%+, while achieving 95% data accuracy.",
         "Designed and built a centralized Document Management System (DMS) to replace inefficient Outlook-based workflows handling large volumes of emails and documents. Implemented features like product/document management, customer login, quotation/sample approvals, chat system, purchase orders, invoice uploads, and enquiry handling—significantly improving organization, tracking, and reliability.",
@@ -57,7 +69,7 @@ const Experience = () => {
         "Customization of WordPress themes/plugins with consistent responsive behavior across devices and measurable improvements in page load stability, caching, and SEO.",
         "Implementation and deployment of email API services for reliable, high-performance message delivery in frontend applications.",
       ],
-    },
+    }
   ];
 
   return (
