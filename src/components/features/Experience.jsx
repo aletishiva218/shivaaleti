@@ -38,10 +38,10 @@ const Experience = () => {
       role: "Python Developer",
       period: "May 2026 - Present",
       tasks: [
-        "Developed and maintained Python web scrapers using Scrapy and Selenium for automated data extraction and monitoring.",
-        "Debugged and optimized existing scrapers by resolving failures, handling website structure changes, and improving scraper reliability and performance.",
-        "Monitored daily scraper execution and ensured timely, accurate, and uninterrupted data collection workflows.",
-        "Collaborated with teams to enhance scraping infrastructure, automate processes, and support maintenance involving Python, PHP, and MySQL."
+        "Developed, maintained, and optimized Python/Selenium web scrapers for automated data extraction, resolving failures and adapting to website structure changes to ensure reliable, uninterrupted daily data collection.",
+        "Engineered proxy rotation and VPN-based IP switching to bypass rate limits and IP blocks, significantly improving scraper uptime and stability.",
+        "Built a PHP-based monitoring dashboard that automatically tracks scraper status (running, skipped, missed tenders), cutting manual debugging effort by ~90%.",
+        "Collaborated with cross-functional teams using Python, PHP, and MySQL to strengthen scraping infrastructure and automate operational workflows."
       ],
     },
     {
