@@ -2,11 +2,19 @@ export const portfolioData = {
   // Projects
   projects: [
     {
+      title: 'TaskBoard',
+      description: 'Production-grade real-time collaborative task management app with live board sync, JWT auth, Google OAuth, role-based access control, and email notifications.',
+      technologies: ['Next.js', 'Node.js', 'Express', 'PostgreSQL', 'Socket.io', 'Redis', 'Docker'],
+      imageUrl: "/images/taskboard.png",
+      date: 'May 2026 - September 2026',
+      website: 'https://taskboard-murex-nu.vercel.app/',
+    },
+    {
       title: 'Euka AI',
       description: 'Full-stack AI web app with user auth, blog, SEO, analytics, and intelligent interview module generation.',
       technologies: ['React','Python','FastAPI','MongoDB','TailwindCSS'],
       imageUrl: "/images/eukaai.png",
-      date: 'April 2025 - Present',
+      date: 'April 2025 - July 2025',
       website: 'https://www.eukaai.com/',
     },
     {
