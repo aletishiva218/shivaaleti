@@ -1,140 +1,86 @@
-import React,{ useRef }  from 'react';
-import Button from '../ui/Button';
-import { Toaster, toast } from 'react-hot-toast';
-import emailjs from '@emailjs/browser';
+import React from 'react';
+import ScrollBlur from '../ui/ScrollBlur';
 
-
-const SERVICE_ID = process.env.REACT_APP_SERVICE_ID;
-const TEMPLATE_ID = process.env.REACT_APP_TEMPLATE_ID;
-const PUBLIC_KEY = process.env.REACT_APP_PUBLIC_KEY;
-
-/**
- * About section component with compact styling, contact info, and contact form (form on right)
- */
 const About = () => {
-  const form = useRef();
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    toast.success('Message sent successfully!', {
-      duration: 2000,
-      position: 'top-right',
-    });
-    const hiddenInput = document.createElement("input");
-  hiddenInput.type = "hidden";
-    hiddenInput.name = "subject";
-    hiddenInput.value = "New Message from Portfolio";
-    form.current.appendChild(hiddenInput);
-    emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, form.current, PUBLIC_KEY)
-      .then(() => {
-      
-        console.log('Message sent successfully!');
-        form.current.reset(); // Optionally reset the form after sending
-      })
-      .catch((error) => {
-        console.error(error);
-        toast.error('Message failed to send. Please try again.', {
-          duration: 2000,
-          position: 'top-right',
-        });
-      });
-  };
-
   return (
-    <section id="about" className="py-8 bg-white dark:bg-gray-900">
-      <Toaster />
-      <div className="max-w-2xl mx-auto px-3">
-        <div className="grid md:grid-cols-2 gap-6 items-start">
-          {/* Left: About Me and Contact Info */}
-          <div>
-            <h2 className="text-lg font-bold text-gray-900 dark:text-white mb-2">About Me</h2>
-            <div className="text-xs text-gray-600 dark:text-gray-400 leading-normal mb-4">
-              <p>
-              Hi, I’m Shiva. A Full Stack Web Developer with 2+ years of experience building and maintaining scalable web applications using PHP, React, Node.js, and Python. Experienced in developing and maintaining web scrapers using Scrapy and Selenium, including debugging, automation, and handling website structure changes. Skilled in backend APIs, database management, production-level issue resolution, and scalable automation systems, with hands-on experience in AI-integrated tools and performance optimization.
-              </p>
-            </div>
-            <div className="mt-6">
-              <h3 className="text-base font-bold text-gray-900 dark:text-white mb-1">Get In Touch</h3>
-              <p className="text-xs text-gray-600 dark:text-gray-400 mb-3">
-                I'm currently looking for new opportunities. Whether you have a question or just want to say hi, I'll try my best to get back to you!
-              </p>
-              <div className="space-y-2 mb-3">
-                <div>
-                  <span className="text-xs font-semibold text-gray-900 dark:text-white">Email: </span>
-                  <a href="mailto:aletishiva218@gmail.com" className="text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 font-medium text-sm">
-                    aletishiva218@gmail.com
-                  </a>
-                </div>
-                <div className="flex flex-wrap gap-3 items-center">
-                  <a href="https://github.com/aletishiva218" target="_blank" rel="noopener noreferrer" className="flex items-center text-xs text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
-                    <span className="mr-1"><img src="/images/github.png" alt="GitHub" className="w-4 h-4 bg-white rounded-full p-[2px]" /></span> GitHub
-                  </a>
-                  <a href="https://linkedin.com/in/shiva-aleti" target="_blank" rel="noopener noreferrer" className="flex items-center text-xs text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
-                    <span className="mr-1"><img src="/images/linkedin.png" alt="LinkedIn" className="w-4 h-4 rounded-full" /></span> LinkedIn
-                  </a>
-                  <a href="mailto:aletishiva218@gmail.com" className="flex items-center text-xs text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
-                    <span className="mr-1"><img src="/images/mail.png" alt="Email" className="w-4 h-4 bg-white rounded-full" /></span> Gmail
-                  </a>
-                   <a href="/pdf/Shiva_Aleti.pdf" target="_blank" rel="noopener noreferrer" className="flex items-center text-xs text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
-                    <span className="mr-1"><img src="/images/resume.png" alt="Email" className="w-4 h-4 bg-white rounded-full" /></span> Resume
-                  </a>
-                </div>
-              </div>
-            </div>
+    <section id="about" className="min-h-screen flex items-center pt-14 bg-white dark:bg-gray-900">
+      <div className="max-w-3xl mx-auto px-6 py-20 w-full">
+        <ScrollBlur>
+          <p className="text-blue-600 dark:text-blue-400 font-medium text-sm mb-3 tracking-wide">
+            Hi, I'm
+          </p>
+          <h1 className="text-5xl sm:text-6xl font-bold text-gray-900 dark:text-white leading-tight mb-3">
+            Shiva Aleti
+          </h1>
+          <p className="text-xl font-medium text-gray-400 dark:text-gray-500 mb-6">
+            Full Stack Developer
+          </p>
+          <p className="text-base text-gray-600 dark:text-gray-400 leading-relaxed max-w-xl mb-8">
+            2+ years building scalable web apps with React, Node.js, Python, and PHP.
+            Experienced in web scraping automation, backend APIs, database management,
+            and AI-integrated tools. Currently open to new opportunities.
+          </p>
+
+          <div className="flex flex-wrap gap-3 mb-8">
+            <a
+              href="#projects"
+              className="inline-flex items-center gap-2 px-5 py-2.5 bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium rounded-lg transition-colors"
+            >
+              View My Work
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+              </svg>
+            </a>
+            <a
+              href="/pdf/Shiva_Aleti.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-5 py-2.5 border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:border-blue-600 hover:text-blue-600 dark:hover:border-blue-400 dark:hover:text-blue-400 text-sm font-medium rounded-lg transition-colors"
+            >
+              Resume
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+              </svg>
+            </a>
           </div>
-          {/* Right: Contact Form */}
-          <div className="bg-white dark:bg-gray-900 rounded-lg p-3 shadow-sm border border-gray-100 dark:border-gray-800">
-            <h3 className="text-base font-semibold text-gray-900 dark:text-white mb-3">
-              Send me a message
-            </h3>
-            <form onSubmit={handleSubmit} className="space-y-3" ref={form}>
-              <div>
-                <label htmlFor="from_name" className="block text-xs font-medium text-gray-700 dark:text-gray-300 mb-1">
-                  Name
-                </label>
-                <input
-                  type="text"
-                  id="from_name"
-                  name="from_name"
-                  required
-                  className="w-full px-2 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white dark:bg-gray-800 text-gray-900 dark:text-white text-xs"
-                  placeholder="Your name"
-                />
-              </div>
-              <div>
-                <label htmlFor="from_email" className="block text-xs font-medium text-gray-700 dark:text-gray-300 mb-1">
-                  Email
-                </label>
-                <input
-                  type="email"
-                  id="from_email"
-                  name="from_email"
-                  required
-                  className="w-full px-2 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white dark:bg-gray-800 text-gray-900 dark:text-white text-xs"
-                  placeholder="your.email@example.com"
-                />
-              </div>
-              <div>
-                <label htmlFor="message" className="block text-xs font-medium text-gray-700 dark:text-gray-300 mb-1">
-                  Message
-                </label>
-                <textarea
-                  id="message"
-                  name="message"
-                  rows="3"
-                  required
-                  className="w-full px-2 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none bg-white dark:bg-gray-800 text-gray-900 dark:text-white text-xs"
-                  placeholder="Your message..."
-                ></textarea>
-              </div>
-              <Button type="submit" variant="primary" className="w-full" size="sm">
-                Send Message
-              </Button>
-            </form>
+
+          <div className="flex items-center gap-5">
+            <a
+              href="https://github.com/aletishiva218"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="GitHub"
+              className="text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors"
+            >
+              <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 2C6.477 2 2 6.484 2 12.021c0 4.428 2.865 8.184 6.839 9.504.5.092.682-.217.682-.483 0-.237-.009-.868-.014-1.703-2.782.605-3.369-1.342-3.369-1.342-.454-1.157-1.11-1.465-1.11-1.465-.908-.62.069-.608.069-.608 1.004.07 1.532 1.032 1.532 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.339-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.025A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.295 2.748-1.025 2.748-1.025.546 1.378.203 2.397.1 2.65.64.7 1.028 1.595 1.028 2.688 0 3.847-2.338 4.695-4.566 4.944.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.749 0 .268.18.58.688.482C19.138 20.2 22 16.447 22 12.021 22 6.484 17.523 2 12 2z" />
+              </svg>
+            </a>
+            <a
+              href="https://linkedin.com/in/shiva-aleti"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="LinkedIn"
+              className="text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+            >
+              <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M19 0h-14c-2.76 0-5 2.24-5 5v14c0 2.76 2.24 5 5 5h14c2.76 0 5-2.24 5-5v-14c0-2.76-2.24-5-5-5zm-11 19h-3v-9h3v9zm-1.5-10.28c-.966 0-1.75-.79-1.75-1.76 0-.97.784-1.76 1.75-1.76s1.75.79 1.75 1.76c0 .97-.784 1.76-1.75 1.76zm13.5 10.28h-3v-4.5c0-1.07-.02-2.44-1.5-2.44-1.5 0-1.73 1.17-1.73 2.36v4.58h-3v-9h2.89v1.23h.04c.4-.75 1.38-1.54 2.84-1.54 3.04 0 3.6 2 3.6 4.59v4.72z" />
+              </svg>
+            </a>
+            <a
+              href="mailto:aletishiva218@gmail.com"
+              aria-label="Email"
+              className="text-gray-400 hover:text-red-500 dark:hover:text-red-400 transition-colors"
+            >
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+              </svg>
+            </a>
           </div>
-        </div>
+        </ScrollBlur>
       </div>
     </section>
   );
 };
 
-export default About; 
+export default About;

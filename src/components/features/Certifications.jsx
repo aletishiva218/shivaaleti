@@ -2,61 +2,56 @@ import React from 'react';
 import { portfolioData } from '../../data/portfolioData';
 import ScrollBlur from '../ui/ScrollBlur';
 
-/**
- * Certifications section with logos, clickable arrow, and compact styling
- */
 const Certifications = () => {
   const certificationsList = portfolioData.certifications;
 
   return (
-    <section id="certifications" className="py-8 bg-white dark:bg-gray-900">
-      <div className="max-w-2xl mx-auto px-3">
-        <h2 className="text-lg font-bold text-gray-900 dark:text-white mb-4">Certifications</h2>
-        <div className="space-y-6">
+    <section id="certifications" className="py-16 bg-gray-50 dark:bg-gray-950">
+      <div className="max-w-3xl mx-auto px-6">
+        <ScrollBlur>
+          <div className="mb-10">
+            <h2 className="text-2xl font-bold text-gray-900 dark:text-white">Certifications</h2>
+            <div className="mt-1.5 w-10 h-0.5 bg-blue-600 rounded-full" />
+          </div>
+        </ScrollBlur>
+
+        <div>
           {certificationsList.map((cert, idx) => (
-            <ScrollBlur key={idx} delay={idx * 150}>
-              <a 
-                href={cert.website} 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className="flex items-center justify-between"
+            <ScrollBlur key={idx} delay={idx * 80}>
+              <a
+                href={cert.website}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-between py-4 group"
               >
-              {/* Left: Logo and Info */}
-              <div className="flex items-center min-w-0">
-                <img
-                  src={cert.logo}
-                  alt={cert.organization + ' logo'}
-                  className="w-12 h-12 rounded-full object-cover border border-gray-200 dark:border-gray-700 mr-4"
-                />
-                <div className="min-w-0">
-                  <div className="flex items-center">
-                    <span className="font-semibold text-sm text-gray-900 dark:text-white truncate">
-                      {cert.organization}
-                    </span>
-                    
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          strokeWidth={2}
-                          stroke="currentColor"
-                          className="w-4 h-4 inline-block align-middle"
-                        >
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                        </svg>
-                
-                    
-                  </div>
-                  <div className="text-xs text-gray-600 dark:text-gray-400 truncate">
-                    {cert.title}
+                <div className="flex items-center gap-3 min-w-0">
+                  <img
+                    src={cert.logo}
+                    alt={cert.organization}
+                    className="w-9 h-9 rounded-lg object-cover flex-shrink-0 border border-gray-200 dark:border-gray-700 bg-white"
+                  />
+                  <div className="min-w-0">
+                    <div className="flex items-center gap-1">
+                      <span className="font-semibold text-sm text-gray-900 dark:text-white truncate">
+                        {cert.title}
+                      </span>
+                      <svg
+                        className="w-3 h-3 text-gray-300 dark:text-gray-600 flex-shrink-0 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors"
+                        fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                      >
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                      </svg>
+                    </div>
+                    <p className="text-xs text-gray-500 dark:text-gray-400 truncate">{cert.organization}</p>
                   </div>
                 </div>
-              </div>
-              {/* Right: Period */}
-              <div className="text-xs text-gray-700 dark:text-gray-300 whitespace-nowrap ml-4">
-                {cert.period}
-              </div>
-            </a>
+                <span className="text-xs text-gray-400 dark:text-gray-500 whitespace-nowrap ml-4 flex-shrink-0">
+                  {cert.period}
+                </span>
+              </a>
+              {idx < certificationsList.length - 1 && (
+                <div className="ml-12 border-b border-gray-100 dark:border-gray-800" />
+              )}
             </ScrollBlur>
           ))}
         </div>
@@ -65,4 +60,4 @@ const Certifications = () => {
   );
 };
 
-export default Certifications; 
+export default Certifications;
