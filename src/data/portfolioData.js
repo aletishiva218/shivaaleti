@@ -1,6 +1,15 @@
 export const portfolioData = {
   // Projects
   projects: [
+      {
+        "title": "Hisaab Calculator Hub",
+        "description": "A clean, fast single-page app with ten everyday Indian calculators — EMI & loan, SIP & FD, Income Tax (Old vs New regime), GST, Percentage & discount, Tip & bill split, Amount in words (cheque-ready), Age & dates, Unit converter (with Indian units like gaj & tola), and BMI. Everything runs fully in the browser with no data sent to any server.",
+        "technologies": ["HTML5", "CSS3", "Vanilla JavaScript", "Google Analytics", "GitHub Pages"],
+        "imageUrl": "/images/hisaab-calculator-hub.png",
+        "date": "October 2026 - October 2026",
+        "github": "https://github.com/aletishiva218/Caclulator",
+        "website": "https://aletishiva218.github.io/Caclulator/#emi"
+      },
     {
       title: 'TaskBoard',
       description: 'Production-grade real-time collaborative task management app with live board sync, JWT auth, Google OAuth, role-based access control, and email notifications.',
