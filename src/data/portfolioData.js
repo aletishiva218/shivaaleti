@@ -2,6 +2,70 @@ export const portfolioData = {
   // Projects
   projects: [
     {
+  title: 'AdFree Tube',
+  description: 'An Android app that loads the real YouTube mobile site with uBlock Origin bundled to strip ads, plus true background play — audio keeps going with the screen off or app hidden, with lock-screen and Bluetooth controls.',
+  technologies: [
+    'Kotlin',
+    'Android SDK',
+    'GeckoView (Firefox engine)',
+    'uBlock Origin (bundled .xpi)',
+    'MediaSession API',
+    'Foreground Service',
+    'Gradle / Kotlin DSL',
+  ],
+  imageUrl: '/images/adfree-tube.jpeg',
+  date: 'October 2026',
+  github: 'https://github.com/aletishiva218/youtube-without-ads',
+  website: null,
+  markdownContent: `## Overview
+
+AdFree Tube is a minimal Android app that wraps the real YouTube mobile site (m.youtube.com) inside Mozilla's GeckoView engine — the same rendering core as Firefox. Because GeckoView is a full browser engine rather than Android's system WebView, Google sign-in works normally, and it can run browser extensions. uBlock Origin is bundled and installed automatically on first launch, stripping every ad before the video player ever sees it. Filter lists update themselves; the extension checks for its own updates once a day.
+
+## Features
+
+- **Ad blocking** — uBlock Origin (.xpi, Mozilla-signed) removes pre-roll, mid-roll and overlay ads
+- **Background play** — audio continues with the screen off or the app minimised; a built-in content script keeps YouTube's visibility API "visible" so it never self-pauses
+- **Media controls** — playback notification, lock-screen controls, Bluetooth headset buttons, and smartwatch integration via Android's MediaSession API
+- **Audio focus** — pauses automatically for phone calls or other audio apps; resumes after short interruptions
+- **Headphone unplug** — pauses when wired or Bluetooth audio disconnects
+- **Deep links** — YouTube links from any app open directly in AdFree Tube ("Open with")
+- **Share target** — share a YouTube link from any app and it loads immediately
+- **Crash recovery** — if the GeckoView process dies (e.g. low memory) the app silently reopens the last URL in a fresh tab
+- **Single-tab, no chrome** — full-screen edge-to-edge layout with a thin loading progress bar; no address bar or UI clutter
+
+## Tech Stack
+
+| Technology | Purpose |
+|---|---|
+| Kotlin | App source language |
+| Android SDK (API 26–36) | Platform target |
+| GeckoView 158 | Firefox rendering engine; enables extensions & Google sign-in |
+| uBlock Origin (.xpi) | Bundled ad blocker, auto-updating filter lists |
+| MediaSession API | Lock-screen controls, Bluetooth, smartwatch |
+| Foreground Service | Background audio keep-alive |
+| Gradle Kotlin DSL | Build system with per-ABI APK splits |
+
+## Architecture
+
+The app is intentionally small — six Kotlin files:
+
+- **\`App\`** — holds the single \`GeckoRuntime\` and \`GeckoSession\` across configuration changes
+- **\`MainActivity\`** — attaches GeckoView, handles fullscreen, back navigation, deep links, and screen/surface lifecycle
+- **\`MediaPlayback\`** — singleton bridge between GeckoView's \`MediaSession\` events and \`PlaybackService\`
+- **\`PlaybackService\`** — foreground media service: notification, audio focus, wake/Wi-Fi locks, headphone unplug receiver
+- **\`Extensions\`** — installs and updates uBlock Origin and the background-play script into the engine
+- **\`UrlPolicy\`** — decides which URLs stay in-app (YouTube/Google) and which open in external apps
+
+## Build
+
+\`\`\`
+set JAVA_HOME=%USERPROFILE%\\.jdks\\jdk-21.0.12.1+1
+gradlew assembleRelease
+\`\`\`
+
+Produces three small APKs split by CPU architecture (arm64-v8a, armeabi-v7a, x86_64). Sideload the arm64 build on any modern Android phone.`,
+},
+    {
       title: 'Hisaab Calculator Hub',
       description: 'Ten everyday Indian calculators in one fast single-page app — EMI, SIP, Income Tax, GST, and more. Runs fully in the browser with no server.',
       technologies: ['HTML5', 'CSS3', 'Vanilla JavaScript', 'Google Analytics', 'GitHub Pages'],
