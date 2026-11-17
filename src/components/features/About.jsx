@@ -1,9 +1,12 @@
-import React from 'react';
-import ScrollBlur from '../ui/ScrollBlur';
+import React from "react";
+import ScrollBlur from "../ui/ScrollBlur";
 
 const About = () => {
   return (
-    <section id="about" className="min-h-screen flex items-center pt-14 bg-white dark:bg-gray-900">
+    <section
+      id="about"
+      className="min-h-screen flex items-center pt-14 bg-white dark:bg-gray-900"
+    >
       <div className="max-w-3xl mx-auto px-6 py-20 w-full">
         <ScrollBlur>
           <p className="text-blue-600 dark:text-blue-400 font-medium text-sm mb-3 tracking-wide">
@@ -16,9 +19,10 @@ const About = () => {
             Full Stack Developer
           </p>
           <p className="text-base text-gray-600 dark:text-gray-400 leading-relaxed max-w-xl mb-8">
-            2+ years building scalable web apps with React, Node.js, Python, and PHP.
-            Experienced in web scraping automation, backend APIs, database management,
-            and AI-integrated tools. Currently open to new opportunities.
+            2+ years building scalable web apps with React, Node.js, Python, and
+            PHP. Experienced in web scraping automation, backend APIs, database
+            management, and AI-integrated tools. Currently open to new
+            opportunities.
           </p>
 
           <div className="flex flex-wrap gap-3 mb-8">
@@ -27,19 +31,39 @@ const About = () => {
               className="inline-flex items-center gap-2 px-5 py-2.5 bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium rounded-lg transition-colors"
             >
               View My Work
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+              <svg
+                className="w-4 h-4"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M19 9l-7 7-7-7"
+                />
               </svg>
             </a>
             <a
-              href="/pdf/Shiva_Aleti.pdf"
+              href="/pdf/Shiva_Aleti_Resume.pdf"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-5 py-2.5 border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:border-blue-600 hover:text-blue-600 dark:hover:border-blue-400 dark:hover:text-blue-400 text-sm font-medium rounded-lg transition-colors"
             >
               Resume
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+              <svg
+                className="w-4 h-4"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+                />
               </svg>
             </a>
           </div>
@@ -72,8 +96,18 @@ const About = () => {
               aria-label="Email"
               className="text-gray-400 hover:text-red-500 dark:hover:text-red-400 transition-colors"
             >
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+              <svg
+                className="w-5 h-5"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth={2}
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                />
               </svg>
             </a>
           </div>
