@@ -3,6 +3,7 @@ import React from 'react';
 import About from './components/features/About';
 import Education from './components/features/Education';
 import Certifications from './components/features/Certifications';
+import Activities from './components/features/Activities';
 import Experience from './components/features/Experience';
 import Skills from './components/features/Skills';
 import Projects from './components/features/Projects';
@@ -23,6 +24,7 @@ const App = () => {
           <About />
           <Education />
           <Certifications />
+          <Activities />
           <Experience />
           <Skills />
           <Projects />

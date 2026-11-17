@@ -4,15 +4,19 @@ import ScrollBlur from '../ui/ScrollBlur';
 const skillCategories = [
   {
     label: 'Frontend',
-    skills: ['React', 'JavaScript', 'HTML', 'CSS', 'TailwindCSS'],
+    skills: ['React', 'Next.js', 'Redux Toolkit', 'JavaScript', 'HTML', 'CSS', 'TailwindCSS'],
   },
   {
     label: 'Backend',
-    skills: ['Node.js', 'Express', 'Python', 'PHP', 'FastAPI'],
+    skills: ['Node.js', 'Express', 'Python', 'PHP', 'FastAPI', 'Socket.io'],
   },
   {
     label: 'Database & Tools',
-    skills: ['MongoDB', 'MySQL', 'PostgreSQL', 'Redis', 'Git & GitHub', 'Docker', 'Scrapy', 'Selenium'],
+    skills: ['MongoDB', 'MySQL', 'PostgreSQL', 'Redis', 'Stripe', 'Git & GitHub', 'Docker', 'Scrapy', 'Selenium'],
+  },
+  {
+    label: 'Mobile',
+    skills: ['Kotlin', 'Android SDK'],
   },
 ];
 

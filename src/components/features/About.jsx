@@ -16,13 +16,14 @@ const About = () => {
             Shiva Aleti
           </h1>
           <p className="text-xl font-medium text-gray-400 dark:text-gray-500 mb-6">
-            Full Stack Developer
+            Software Engineer
           </p>
           <p className="text-base text-gray-600 dark:text-gray-400 leading-relaxed max-w-xl mb-8">
-            2+ years building scalable web apps with React, Node.js, Python, and
-            PHP. Experienced in web scraping automation, backend APIs, database
-            management, and AI-integrated tools. Currently open to new
-            opportunities.
+            Software Engineer with 2+ years of experience building full-stack
+            applications and data pipelines in Python, JavaScript (Next.js,
+            Node.js) and PHP. I maintain 283 production web scrapers at a ~90%
+            daily success rate and build AI-powered SaaS and real-time apps.
+            Currently open to new opportunities.
           </p>
 
           <div className="flex flex-wrap gap-3 mb-8">

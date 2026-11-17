@@ -1,119 +1,13 @@
 export const portfolioData = {
-  // Projects
+  // Projects — order: TaskBoard, Euka AI, Hisaab Calculator Hub, AdFree Tube
   projects: [
-    {
-      title: 'AdFree Tube',
-      description: 'An Android app that loads the real YouTube mobile site with uBlock Origin bundled to strip ads, plus true background play — audio keeps going with the screen off or app hidden, with lock-screen and Bluetooth controls.',
-      technologies: [
-        'Kotlin',
-        'Android SDK',
-        'GeckoView (Firefox engine)',
-        'uBlock Origin (bundled .xpi)',
-        'MediaSession API',
-        'Foreground Service',
-        'Gradle / Kotlin DSL',
-      ],
-      imageUrl: '/images/adfree-tube.jpeg',
-      date: 'October 2026',
-      github: 'https://github.com/aletishiva218/youtube-without-ads',
-      website: null,
-      markdownContent: `## Overview
-
-AdFree Tube is a minimal Android app that wraps the real YouTube mobile site (m.youtube.com) inside Mozilla's GeckoView engine — the same rendering core as Firefox. Because GeckoView is a full browser engine rather than Android's system WebView, Google sign-in works normally, and it can run browser extensions. uBlock Origin is bundled and installed automatically on first launch, stripping every ad before the video player ever sees it. Filter lists update themselves; the extension checks for its own updates once a day.
-
-## Features
-
-- **Ad blocking** — uBlock Origin (.xpi, Mozilla-signed) removes pre-roll, mid-roll and overlay ads
-- **Background play** — audio continues with the screen off or the app minimised; a built-in content script keeps YouTube's visibility API "visible" so it never self-pauses
-- **Media controls** — playback notification, lock-screen controls, Bluetooth headset buttons, and smartwatch integration via Android's MediaSession API
-- **Audio focus** — pauses automatically for phone calls or other audio apps; resumes after short interruptions
-- **Headphone unplug** — pauses when wired or Bluetooth audio disconnects
-- **Deep links** — YouTube links from any app open directly in AdFree Tube ("Open with")
-- **Share target** — share a YouTube link from any app and it loads immediately
-- **Crash recovery** — if the GeckoView process dies (e.g. low memory) the app silently reopens the last URL in a fresh tab
-- **Single-tab, no chrome** — full-screen edge-to-edge layout with a thin loading progress bar; no address bar or UI clutter
-
-## Tech Stack
-
-| Technology | Purpose |
-|---|---|
-| Kotlin | App source language |
-| Android SDK (API 26–36) | Platform target |
-| GeckoView 158 | Firefox rendering engine; enables extensions & Google sign-in |
-| uBlock Origin (.xpi) | Bundled ad blocker, auto-updating filter lists |
-| MediaSession API | Lock-screen controls, Bluetooth, smartwatch |
-| Foreground Service | Background audio keep-alive |
-| Gradle Kotlin DSL | Build system with per-ABI APK splits |
-
-## Architecture
-
-The app is intentionally small — six Kotlin files:
-
-- **\`App\`** — holds the single \`GeckoRuntime\` and \`GeckoSession\` across configuration changes
-- **\`MainActivity\`** — attaches GeckoView, handles fullscreen, back navigation, deep links, and screen/surface lifecycle
-- **\`MediaPlayback\`** — singleton bridge between GeckoView's \`MediaSession\` events and \`PlaybackService\`
-- **\`PlaybackService\`** — foreground media service: notification, audio focus, wake/Wi-Fi locks, headphone unplug receiver
-- **\`Extensions\`** — installs and updates uBlock Origin and the background-play script into the engine
-- **\`UrlPolicy\`** — decides which URLs stay in-app (YouTube/Google) and which open in external apps
-
-## Build
-
-\`\`\`
-set JAVA_HOME=%USERPROFILE%\\.jdks\\jdk-21.0.12.1+1
-gradlew assembleRelease
-\`\`\`
-
-Produces three small APKs split by CPU architecture (arm64-v8a, armeabi-v7a, x86_64). Sideload the arm64 build on any modern Android phone.`,
-    },
-    {
-      title: 'Hisaab Calculator Hub',
-      description: 'Ten everyday Indian calculators in one fast single-page app — EMI, SIP, Income Tax, GST, and more. Runs fully in the browser with no server.',
-      technologies: ['HTML5', 'CSS3', 'Vanilla JavaScript', 'Google Analytics', 'GitHub Pages'],
-      imageUrl: '/images/hisaab-calculator-hub.png',
-      date: 'October 2026',
-      github: 'https://github.com/aletishiva218/Caclulator',
-      website: 'https://aletishiva218.github.io/Caclulator/#emi',
-      markdownContent: `## Overview
-
-Hisaab Calculator Hub is a clean, fast single-page application featuring ten everyday Indian calculators, built entirely with vanilla web technologies and running fully in the browser — no server required.
-
-## Calculators Included
-
-- **EMI & Loan** — Monthly instalment, total interest, and full repayment breakdown
-- **SIP & FD** — Projected returns for Systematic Investment Plans and Fixed Deposits
-- **Income Tax** — Old vs New regime comparison with accurate slab-based calculations
-- **GST** — Inclusive and exclusive GST computation across all tax slabs (5%, 12%, 18%, 28%)
-- **Percentage & Discount** — Quick percentage, discount, and markup calculations
-- **Tip & Bill Split** — Fair bill splitting with customizable tip percentage
-- **Amount in Words** — Cheque-ready number-to-words conversion in Indian format (lakhs, crores)
-- **Age & Date** — Exact age and date difference down to days
-- **Unit Converter** — Supports Indian units (gaj, tola, bigha) alongside standard SI units
-- **BMI** — Body Mass Index with WHO health category classification
-
-## Tech Stack
-
-| Technology | Purpose |
-|---|---|
-| HTML5 | Semantic structure and accessibility |
-| CSS3 | Responsive, mobile-first styling |
-| Vanilla JavaScript | All calculator logic and real-time updates |
-| Google Analytics | Usage and engagement tracking |
-| GitHub Pages | Free static hosting and CI/CD |
-
-## Key Highlights
-
-- **Zero dependencies** — entirely vanilla JS, no frameworks or libraries
-- **Indian number formatting** — lakhs, crores, paise handled natively
-- **Instant calculations** — real-time updates on every keypress
-- **Privacy-first** — no data ever leaves the browser
-- **Mobile-first** — fully responsive on all screen sizes`,
-    },
     {
       title: 'TaskBoard',
       description: 'Production-grade real-time collaborative task management with live board sync, JWT auth, Google OAuth, role-based access control, and email notifications.',
       technologies: ['Next.js', 'Node.js', 'Express', 'PostgreSQL', 'Socket.io', 'Redis', 'Docker'],
       imageUrl: '/images/taskboard.png',
       date: 'May 2026 – September 2026',
+      github: null,
       website: 'https://taskboard-murex-nu.vercel.app/',
       markdownContent: `## Overview
 
@@ -176,7 +70,7 @@ The application is built around a clear separation of concerns:
         'Nodemailer',
       ],
       imageUrl: '/images/eukaai.png',
-      date: 'April 2025 - July 2025',
+      date: 'April 2025 – Present',
       github: 'https://github.com/aletishiva218/Interview-Guide',
       website: 'https://www.eukaai.com',
       markdownContent: `## Overview
@@ -246,13 +140,120 @@ npm run dev        # next dev → http://localhost:3000
 
 Required env vars: \`MONGODB_URI\`, \`JWT_SECRET\`, \`OPENROUTER_API_KEY\`, \`STRIPE_SECRET_KEY\`, \`STRIPE_WEBHOOK_SECRET\`, \`NEXT_PUBLIC_GOOGLE_CLIENT_ID\`, \`NEXT_PUBLIC_BACKEND_URL\`.`,
     },
+    {
+      title: 'Hisaab Calculator Hub',
+      description: 'Ten everyday Indian calculators in one fast single-page app — EMI, SIP, Income Tax, GST, and more. Runs fully in the browser with no server.',
+      technologies: ['HTML5', 'CSS3', 'Vanilla JavaScript', 'Google Analytics', 'GitHub Pages'],
+      imageUrl: '/images/hisaab-calculator-hub.png',
+      date: 'October 2026',
+      github: 'https://github.com/aletishiva218/Caclulator',
+      website: 'https://aletishiva218.github.io/Caclulator/#emi',
+      markdownContent: `## Overview
+
+Hisaab Calculator Hub is a clean, fast single-page application featuring ten everyday Indian calculators, built entirely with vanilla web technologies and running fully in the browser — no server required.
+
+## Calculators Included
+
+- **EMI & Loan** — Monthly instalment, total interest, and full repayment breakdown
+- **SIP & FD** — Projected returns for Systematic Investment Plans and Fixed Deposits
+- **Income Tax** — Old vs New regime comparison with accurate slab-based calculations
+- **GST** — Inclusive and exclusive GST computation across all tax slabs (5%, 12%, 18%, 28%)
+- **Percentage & Discount** — Quick percentage, discount, and markup calculations
+- **Tip & Bill Split** — Fair bill splitting with customizable tip percentage
+- **Amount in Words** — Cheque-ready number-to-words conversion in Indian format (lakhs, crores)
+- **Age & Date** — Exact age and date difference down to days
+- **Unit Converter** — Supports Indian units (gaj, tola, bigha) alongside standard SI units
+- **BMI** — Body Mass Index with WHO health category classification
+
+## Tech Stack
+
+| Technology | Purpose |
+|---|---|
+| HTML5 | Semantic structure and accessibility |
+| CSS3 | Responsive, mobile-first styling |
+| Vanilla JavaScript | All calculator logic and real-time updates |
+| Google Analytics | Usage and engagement tracking |
+| GitHub Pages | Free static hosting and CI/CD |
+
+## Key Highlights
+
+- **Zero dependencies** — entirely vanilla JS, no frameworks or libraries
+- **Indian number formatting** — lakhs, crores, paise handled natively
+- **Instant calculations** — real-time updates on every keypress
+- **Privacy-first** — no data ever leaves the browser
+- **Mobile-first** — fully responsive on all screen sizes`,
+    },
+    {
+      title: 'AdFree Tube',
+      description: 'An Android app that loads the real YouTube mobile site with uBlock Origin bundled to strip ads, plus true background play — audio keeps going with the screen off or app hidden, with lock-screen and Bluetooth controls.',
+      technologies: [
+        'Kotlin',
+        'Android SDK',
+        'GeckoView (Firefox engine)',
+        'uBlock Origin (bundled .xpi)',
+        'MediaSession API',
+        'Foreground Service',
+        'Gradle / Kotlin DSL',
+      ],
+      imageUrl: '/images/adfree-tube.jpeg',
+      date: 'October 2026',
+      github: 'https://github.com/aletishiva218/youtube-without-ads',
+      website: null,
+      markdownContent: `## Overview
+
+AdFree Tube is a minimal Android app that wraps the real YouTube mobile site (m.youtube.com) inside Mozilla's GeckoView engine — the same rendering core as Firefox. Because GeckoView is a full browser engine rather than Android's system WebView, Google sign-in works normally, and it can run browser extensions. uBlock Origin is bundled and installed automatically on first launch, stripping every ad before the video player ever sees it. Filter lists update themselves; the extension checks for its own updates once a day.
+
+## Features
+
+- **Ad blocking** — uBlock Origin (.xpi, Mozilla-signed) removes pre-roll, mid-roll and overlay ads
+- **Background play** — audio continues with the screen off or the app minimised; a built-in content script keeps YouTube's visibility API "visible" so it never self-pauses
+- **Media controls** — playback notification, lock-screen controls, Bluetooth headset buttons, and smartwatch integration via Android's MediaSession API
+- **Audio focus** — pauses automatically for phone calls or other audio apps; resumes after short interruptions
+- **Headphone unplug** — pauses when wired or Bluetooth audio disconnects
+- **Deep links** — YouTube links from any app open directly in AdFree Tube ("Open with")
+- **Share target** — share a YouTube link from any app and it loads immediately
+- **Crash recovery** — if the GeckoView process dies (e.g. low memory) the app silently reopens the last URL in a fresh tab
+- **Single-tab, no chrome** — full-screen edge-to-edge layout with a thin loading progress bar; no address bar or UI clutter
+
+## Tech Stack
+
+| Technology | Purpose |
+|---|---|
+| Kotlin | App source language |
+| Android SDK (API 26–36) | Platform target |
+| GeckoView 158 | Firefox rendering engine; enables extensions & Google sign-in |
+| uBlock Origin (.xpi) | Bundled ad blocker, auto-updating filter lists |
+| MediaSession API | Lock-screen controls, Bluetooth, smartwatch |
+| Foreground Service | Background audio keep-alive |
+| Gradle Kotlin DSL | Build system with per-ABI APK splits |
+
+## Architecture
+
+The app is intentionally small — six Kotlin files:
+
+- **\`App\`** — holds the single \`GeckoRuntime\` and \`GeckoSession\` across configuration changes
+- **\`MainActivity\`** — attaches GeckoView, handles fullscreen, back navigation, deep links, and screen/surface lifecycle
+- **\`MediaPlayback\`** — singleton bridge between GeckoView's \`MediaSession\` events and \`PlaybackService\`
+- **\`PlaybackService\`** — foreground media service: notification, audio focus, wake/Wi-Fi locks, headphone unplug receiver
+- **\`Extensions\`** — installs and updates uBlock Origin and the background-play script into the engine
+- **\`UrlPolicy\`** — decides which URLs stay in-app (YouTube/Google) and which open in external apps
+
+## Build
+
+\`\`\`
+set JAVA_HOME=%USERPROFILE%\\.jdks\\jdk-21.0.12.1+1
+gradlew assembleRelease
+\`\`\`
+
+Produces three small APKs split by CPU architecture (arm64-v8a, armeabi-v7a, x86_64). Sideload the arm64 build on any modern Android phone.`,
+    },
   ],
 
-  // Education
+  // Education — all 3 entries kept; B.Sc. IT updated with university + CGPI
   education: [
     {
-      school: 'M.L. Dahanukar College of Commerce',
-      degree: 'Bachelor of Science in Information Technology (B.Sc. IT)',
+      school: 'M.L. Dahanukar College of Commerce, University of Mumbai',
+      degree: 'Bachelor of Science in Information Technology (B.Sc. IT) | CGPI: 8.53/10',
       period: '2022 – 2025',
       logo: '/images/mldc.webp',
       website: 'http://www.mldcc.com/',
@@ -275,22 +276,8 @@ Required env vars: \`MONGODB_URI\`, \`JWT_SECRET\`, \`OPENROUTER_API_KEY\`, \`ST
     },
   ],
 
-  // Certifications
+  // Certifications — reordered: Azure AI first, then MOS
   certifications: [
-    {
-      organization: 'M.L. Dahanukar College of Commerce',
-      title: 'National Service Scheme',
-      period: '2022 – 2024',
-      logo: '/images/nsslogo.webp',
-      website: '/pdf/nss.pdf',
-    },
-    {
-      organization: 'M.L. Dahanukar College of Commerce',
-      title: 'Principal of Research',
-      period: '2024',
-      logo: '/images/mldc.webp',
-      website: '/pdf/principalofresearch.pdf',
-    },
     {
       organization: 'Microsoft',
       title: 'Microsoft Certified: Azure AI Fundamentals',
@@ -304,6 +291,24 @@ Required env vars: \`MONGODB_URI\`, \`JWT_SECRET\`, \`OPENROUTER_API_KEY\`, \`ST
       period: '2022',
       logo: '/images/microsoft1.webp',
       website: '/pdf/excel.pdf',
+    },
+  ],
+
+  // Activities — moved from certifications; same logos/links kept
+  activities: [
+    {
+      organization: 'M.L. Dahanukar College of Commerce',
+      title: 'National Service Scheme',
+      period: '2022 – 2024',
+      logo: '/images/nsslogo.webp',
+      website: '/pdf/nss.pdf',
+    },
+    {
+      organization: 'M.L. Dahanukar College of Commerce',
+      title: 'Principal of Research',
+      period: '2024',
+      logo: '/images/mldc.webp',
+      website: '/pdf/principalofresearch.pdf',
     },
   ],
 };
