@@ -2,22 +2,22 @@ export const portfolioData = {
   // Projects
   projects: [
     {
-  title: 'AdFree Tube',
-  description: 'An Android app that loads the real YouTube mobile site with uBlock Origin bundled to strip ads, plus true background play — audio keeps going with the screen off or app hidden, with lock-screen and Bluetooth controls.',
-  technologies: [
-    'Kotlin',
-    'Android SDK',
-    'GeckoView (Firefox engine)',
-    'uBlock Origin (bundled .xpi)',
-    'MediaSession API',
-    'Foreground Service',
-    'Gradle / Kotlin DSL',
-  ],
-  imageUrl: '/images/adfree-tube.jpeg',
-  date: 'October 2026',
-  github: 'https://github.com/aletishiva218/youtube-without-ads',
-  website: null,
-  markdownContent: `## Overview
+      title: 'AdFree Tube',
+      description: 'An Android app that loads the real YouTube mobile site with uBlock Origin bundled to strip ads, plus true background play — audio keeps going with the screen off or app hidden, with lock-screen and Bluetooth controls.',
+      technologies: [
+        'Kotlin',
+        'Android SDK',
+        'GeckoView (Firefox engine)',
+        'uBlock Origin (bundled .xpi)',
+        'MediaSession API',
+        'Foreground Service',
+        'Gradle / Kotlin DSL',
+      ],
+      imageUrl: '/images/adfree-tube.jpeg',
+      date: 'October 2026',
+      github: 'https://github.com/aletishiva218/youtube-without-ads',
+      website: null,
+      markdownContent: `## Overview
 
 AdFree Tube is a minimal Android app that wraps the real YouTube mobile site (m.youtube.com) inside Mozilla's GeckoView engine — the same rendering core as Firefox. Because GeckoView is a full browser engine rather than Android's system WebView, Google sign-in works normally, and it can run browser extensions. uBlock Origin is bundled and installed automatically on first launch, stripping every ad before the video player ever sees it. Filter lists update themselves; the extension checks for its own updates once a day.
 
@@ -64,7 +64,7 @@ gradlew assembleRelease
 \`\`\`
 
 Produces three small APKs split by CPU architecture (arm64-v8a, armeabi-v7a, x86_64). Sideload the arm64 build on any modern Android phone.`,
-},
+    },
     {
       title: 'Hisaab Calculator Hub',
       description: 'Ten everyday Indian calculators in one fast single-page app — EMI, SIP, Income Tax, GST, and more. Runs fully in the browser with no server.',
@@ -158,46 +158,93 @@ The application is built around a clear separation of concerns:
     },
     {
       title: 'Euka AI',
-      description: 'Full-stack AI web app with user auth, blog, SEO, analytics, and an intelligent interview module that generates custom question sets per role.',
-      technologies: ['React', 'Python', 'FastAPI', 'MongoDB', 'TailwindCSS'],
+      description: 'An AI-powered Product Manager interview prep platform that generates a personalized 12-module full guide or a quick cheat-sheet from your resume, job description, and company name — covering everything from company research to behavioral, product sense, and technical rounds.',
+      technologies: [
+        'Next.js 16',
+        'React 19',
+        'Tailwind CSS v4',
+        'Redux Toolkit',
+        'Framer Motion',
+        'BlockNote (rich text editor)',
+        'Google OAuth (@react-oauth/google)',
+        'Node.js / Express 5',
+        'MongoDB / Mongoose',
+        'OpenRouter API (Gemini 2.5 Flash)',
+        'Stripe',
+        'Multer / pdf-parse (PDF resume ingestion)',
+        'JWT / bcryptjs',
+        'Nodemailer',
+      ],
       imageUrl: '/images/eukaai.png',
-      date: 'April 2025 – July 2025',
-      website: 'https://www.eukaai.com/',
+      date: 'April 2025 - July 2025',
+      github: 'https://github.com/aletishiva218/Interview-Guide',
+      website: 'https://www.eukaai.com',
       markdownContent: `## Overview
 
-Euka AI is a full-stack AI-powered web platform designed for intelligent interview preparation and professional development. It features an AI-driven question generation engine that creates tailored question sets based on role, experience level, and skill area.
+Euka AI is a full-stack SaaS platform that eliminates the 4+ hours of scattered research that goes into prepping for a Product Manager interview. You paste a job description, optionally upload a PDF resume, and Euka fires 12 parallel LLM calls to build a structured, company-specific interview guide in one shot. A lighter "Quick Guide" mode generates a single-page cheat-sheet with key facts, product focus areas, and round-by-round interview questions.
 
 ## Features
 
-- **AI Interview Engine** — Generates custom interview question sets tailored to job role and skill level using large language models
-- **User Authentication** — Secure signup and login with session-based authentication and protected routes
-- **Blog Platform** — SEO-optimized content management for articles, guides, and resources
-- **Analytics Dashboard** — Track user engagement, question attempts, and platform usage metrics
-- **Responsive Design** — Fully adaptive layout across all device sizes
+- **Full Guide (12 modules)** — Know the Company, Product Research, Recruiter Screen Prep, JD Analysis, Resume Experience to Stand Out, Favourite Product Question, Product Design, Behavioral & Leadership, Analytical Estimation, Product Strategy, Product Sense, and Technical — all generated in parallel
+- **Source-backed modules** — the company research, product research, and recruiter-screen modules use Gemini's online mode and return live web citations attached to each section
+- **AI summaries** — each source-backed module also gets a synthesised HTML summary generated concurrently as soon as its LLM call resolves
+- **Quick Guide** — instant single-page cheat-sheet with key facts, product focus, and interview questions by round
+- **PDF resume ingestion** — upload a PDF resume (up to 5 MB); text is extracted server-side and stored against the user so future guides don't require a re-upload
+- **Notes per module** — each module ships with a blank notebook backed by the BlockNote rich-text editor
+- **Practice questions** — static and AI-generated Q&A sets scoped to each module
+- **Freemium + Stripe** — one free guide, then Stripe Checkout / webhook for paid access; subscription cancellation handled via webhook
+- **Google OAuth** — one-click sign-in; no passwords
+- **Waitlist** — landing-page email capture before account creation
 
 ## Tech Stack
 
-| Technology | Purpose |
+| Layer | Technology |
 |---|---|
-| React | Frontend SPA with component-driven UI |
-| Python + FastAPI | High-performance async REST API |
-| MongoDB | Flexible document storage for users and content |
-| TailwindCSS | Utility-first styling for rapid UI development |
+| Frontend | Next.js 16 (App Router), React 19, Tailwind CSS v4 |
+| State | Redux Toolkit + React-Redux |
+| UI | MUI v7, Radix UI, Lucide icons, Framer Motion |
+| Rich text | BlockNote 0.44 |
+| Auth (client) | @react-oauth/google, Google OAuth implicit flow |
+| Backend | Node.js, Express 5, ES Modules |
+| Database | MongoDB Atlas via Mongoose 8 |
+| AI | OpenRouter → Google Gemini 2.5 Flash (offline) + Gemini 2.5 Flash Online (live web search + citations) |
+| Payments | Stripe (Checkout Sessions + webhooks) |
+| File handling | Multer (disk storage), pdf-parse / pdf2json |
+| Email | Nodemailer |
+| Validation | Joi |
+| Auth (server) | JWT (httpOnly cookie), bcryptjs |
 
 ## Architecture
 
-- **Frontend**: React SPA with TailwindCSS delivering a fast, modern interface
-- **Backend**: Python FastAPI providing async REST endpoints with Pydantic validation
-- **Database**: MongoDB for schema-flexible storage of users, questions, and blog content
-- **AI Layer**: LLM integration generating context-aware, role-specific interview questions
-- **SEO**: Structured metadata and server-rendered content for organic discoverability
+The backend is organised as a feature-module monolith — each domain (fullGuide, quickGuide, module, subModule, subModuleContent, moduleSummary, moduleQuestion, moduleQuestionContent, moduleSources, moduleNote, quickGuideKeyFact, quickGuideProductFocus, quickGuideInterviewQuestionsByRound, user, auth, stripe, waitList) lives in its own folder with model / service / controller / routes / validators.
 
-## Key Highlights
+The \`createFullGuide\` controller is the centrepiece: it fires all 12 LLM calls with \`Promise.allSettled\` so a single slow or failing module never blocks the others. The three source modules chain their summary generation directly onto their own promise so summaries start the moment their parent call resolves. Only after all 12 settle does the controller open a MongoDB transaction and bulk-write every document atomically.
 
-- AI generates role-specific questions dynamically — not a static question bank
-- End-to-end authentication with secure session handling and protected API routes
-- Integrated blog drives organic traffic through SEO-optimized content
-- Modular FastAPI architecture allows independent scaling of AI and content services`,
+## LLM Integration
+
+\`\`\`
+OpenRouter (Gemini 2.5 Flash)
+  ├── offline model  → structured JSON (Joi schema enforcement via json_schema response format)
+  └── online model   → structured JSON + URL citations (web search annotations)
+\`\`\`
+
+Responses are constrained with OpenRouter's \`json_schema\` response format and the \`response-healing\` plugin so malformed JSON is automatically repaired before it reaches the application layer.
+
+## Running Locally
+
+\`\`\`bash
+# Backend
+cd backend-node.js
+npm install
+npm run dev        # nodemon src/server.js
+
+# Frontend
+cd "frontend - next"
+npm install
+npm run dev        # next dev → http://localhost:3000
+\`\`\`
+
+Required env vars: \`MONGODB_URI\`, \`JWT_SECRET\`, \`OPENROUTER_API_KEY\`, \`STRIPE_SECRET_KEY\`, \`STRIPE_WEBHOOK_SECRET\`, \`NEXT_PUBLIC_GOOGLE_CLIENT_ID\`, \`NEXT_PUBLIC_BACKEND_URL\`.`,
     },
   ],
 
